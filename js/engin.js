@@ -15,15 +15,26 @@ let phoneLoader = async () => {
 
 
 let showPhone = (phone) => {
+    let phoneList = phone.data;
+    
     let phoneContainer = document.getElementById('phoneContainer');
+    let showAllBtn = document.getElementById('showAllBtn');
 
     //only this single line of code prevents it from making duplicate
     phoneContainer.textContent = '';
-
-    let phoneList = phone.data;
+    
+    
+    if(phoneList.length>12){
+        showAllBtn.classList.remove('hidden')
+    }else{
+        showAllBtn.classList.add('hidden')
+    }
+    
+    //showing particuler number of phone
+    phoneList = phoneList.slice(0,12)
 
     phoneList.forEach(element => {
-        console.log(element)
+
         let div = document.createElement('div');
         div.classList = 'card bg-base-100 shadow-xl'
         div.innerHTML = `
