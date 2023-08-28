@@ -63,6 +63,6 @@ let showPhone = (phone) => {
         phoneContainer.appendChild(div)
     });
 
-    // handleLoader(x = false)
+    handleLoader(x = false)
 
 }
