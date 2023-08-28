@@ -9,7 +9,7 @@ function handleLoader(isLoading) {
 }
 
 
-let phoneLoader = async () => {
+let phoneLoader = async (isShowAll) => {
     //loading starts here
     handleLoader(true)
 
@@ -23,11 +23,11 @@ let phoneLoader = async () => {
     let phones = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
     let phone = await phones.json();
 
-    showPhone(phone)
+    showPhone(phone , isShowAll)
 }
 
 
-let showPhone = (phone) => {
+let showPhone = (phone,isShowAll) => {
     let phoneList = phone.data;
 
     let phoneContainer = document.getElementById('phoneContainer');
@@ -37,14 +37,17 @@ let showPhone = (phone) => {
     phoneContainer.textContent = '';
 
 
-    if (phoneList.length > 12) {
+    if (phoneList.length > 12 && !isShowAll) {
         showAllBtn.classList.remove('hidden')
     } else {
         showAllBtn.classList.add('hidden')
     }
 
+    console.log('is show all', isShowAll)
     //showing particuler number of phone
-    phoneList = phoneList.slice(0, 12)
+    if(!isShowAll){
+        phoneList = phoneList.slice(0, 12)
+    }
 
     phoneList.forEach(element => {
 
@@ -68,4 +71,9 @@ let showPhone = (phone) => {
     //loading ends here
     handleLoader(false)
 
+}
+
+// handle show all
+let handleShowAll = () => {
+    phoneLoader(true);
 }
