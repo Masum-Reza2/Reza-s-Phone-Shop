@@ -1,6 +1,6 @@
-function handleLoader(x = true) {
+function handleLoader(isLoading) {
     let loadingPart = document.getElementById('loadingPart');
-    if (x) {
+    if (isLoading) {
         loadingPart.classList.remove('hidden');
     }
     else {
@@ -10,6 +10,8 @@ function handleLoader(x = true) {
 
 
 let phoneLoader = async () => {
+    //loading starts here
+    handleLoader(true)
 
     let searchField = document.getElementById('searchField');
     let searchText = searchField.value;
@@ -63,6 +65,7 @@ let showPhone = (phone) => {
         phoneContainer.appendChild(div)
     });
 
-    handleLoader(x = false)
+    //loading ends here
+    handleLoader(false)
 
 }
