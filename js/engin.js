@@ -1,11 +1,11 @@
-function handleLoader(x=true) {
-        let loadingPart = document.getElementById('loadingPart');
-        if(x){
-            loadingPart.classList.remove('hidden');
-        }
-        else{
-            loadingPart.classList.add('hidden');
-        }
+function handleLoader(x = true) {
+    let loadingPart = document.getElementById('loadingPart');
+    if (x) {
+        loadingPart.classList.remove('hidden');
+    }
+    else {
+        loadingPart.classList.add('hidden');
+    }
 }
 
 
@@ -63,6 +63,6 @@ let showPhone = (phone) => {
         phoneContainer.appendChild(div)
     });
 
-    handleLoader(x=false)
+    // handleLoader(x = false)
 
 }
