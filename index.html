@@ -14,7 +14,16 @@
 
     <div class="flex justify-center mt-5 gap-x-5">
         <input type="text" name="" id="searchField" placeholder="Enter a phone name" class="border text-center focus:outline-none rounded-lg">
-        <button onclick="phoneLoader()" class="btn btn-primary active:outline-none">Search</button>
+        <button id="btnSearch" onclick="phoneLoader(), handleLoader()" class="btn btn-primary active:outline-none">Search</button>
+    </div>
+
+    <div id="loadingPart" class="hidden">
+        <div class="flex justify-center my-5">
+            <!-- loading spinner -->
+            <span class="loading loading-ring loading-lg"></span>
+            <span class="loading loading-ring loading-lg"></span>
+            <span class="loading loading-ring loading-lg"></span>
+        </div>
     </div>
 
     <div id="phoneContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-4/5 mx-auto mt-5">

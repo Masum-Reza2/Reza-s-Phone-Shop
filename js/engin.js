@@ -1,37 +1,48 @@
+function handleLoader(x=true) {
+        let loadingPart = document.getElementById('loadingPart');
+        if(x){
+            loadingPart.classList.remove('hidden');
+        }
+        else{
+            loadingPart.classList.add('hidden');
+        }
+}
+
+
 let phoneLoader = async () => {
 
     let searchField = document.getElementById('searchField');
     let searchText = searchField.value;
-    if(!searchText){
+    if (!searchText) {
         alert('Enter phone name');
         return;
     }
-    
+
     let phones = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
     let phone = await phones.json();
-    
+
     showPhone(phone)
 }
 
 
 let showPhone = (phone) => {
     let phoneList = phone.data;
-    
+
     let phoneContainer = document.getElementById('phoneContainer');
     let showAllBtn = document.getElementById('showAllBtn');
 
     //only this single line of code prevents it from making duplicate
     phoneContainer.textContent = '';
-    
-    
-    if(phoneList.length>12){
+
+
+    if (phoneList.length > 12) {
         showAllBtn.classList.remove('hidden')
-    }else{
+    } else {
         showAllBtn.classList.add('hidden')
     }
-    
+
     //showing particuler number of phone
-    phoneList = phoneList.slice(0,12)
+    phoneList = phoneList.slice(0, 12)
 
     phoneList.forEach(element => {
 
@@ -51,5 +62,7 @@ let showPhone = (phone) => {
         `
         phoneContainer.appendChild(div)
     });
+
+    handleLoader(x=false)
 
 }
