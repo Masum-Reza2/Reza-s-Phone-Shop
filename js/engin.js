@@ -9,6 +9,7 @@ let phoneLoader = async () => {
     
     let phones = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
     let phone = await phones.json();
+    
     showPhone(phone)
 }
 
