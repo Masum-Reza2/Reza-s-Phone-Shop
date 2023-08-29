@@ -107,10 +107,10 @@ let showIndividualModal = (particulerData) => {
     <p>Name: ${particulerData.name}</p>
     
     <div class="text-sm border">
-    <p><span class="underline">Processor</span>: ${particulerData.mainFeatures.chipSet}</p>
-    <p><span class="underline">Display</span>: ${particulerData.mainFeatures.displaySize}</p>
-    <p><span class="underline">Storage</span>: ${particulerData.mainFeatures.memory}</p>
-    <p><span class="underline">Gps</span>: ${particulerData.others.GPS}</p>
+    <p><span class="underline">Processor</span>: ${particulerData?.mainFeatures?.chipSet}</p>
+    <p><span class="underline">Display</span>: ${particulerData?.mainFeatures?.displaySize}</p>
+    <p><span class="underline">Storage</span>: ${particulerData?.mainFeatures?.memory}</p>
+    <p><span class="underline">Gps</span>: ${particulerData?.others?.GPS}</p>
     </div>
     
     </div>
