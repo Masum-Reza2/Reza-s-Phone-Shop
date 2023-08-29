@@ -24,7 +24,7 @@ let phoneLoader = async (isShowAll) => {
     let phone = await phones.json();
 
     showPhone(phone , isShowAll)
-    searchField.value = ''
+    
 }
 
 
