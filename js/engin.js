@@ -90,11 +90,17 @@ let handleShowDetail = async (id) =>{
     showIndividualModal(particulerData)
 }
 
+
+//individual phone show modal element passing
 let showIndividualModal = (particulerData) =>{
 
-    let barndName = document.getElementById('barndName');
-    barndName.innerText = `${particulerData.name}`
-    
+    let showDetailsContainer = document.getElementById('showDetailsContainer');
+    showDetailsContainer.innerHTML = `
+    <div class="flex justify-center">
+    <img src="${particulerData.image}" alt="">
+    </div>
+    `
+    //call the modal after loading the individual phone
     showDetails_modal.showModal();
 }
 
