@@ -10,10 +10,11 @@
 </head>
 
 <body>
-    <h1 class="text-center text-xl mt-2 font-bold" style="text-shadow: 1px 1px 1px red;">Welcome to Davids Phone Shop. Buy your desires the way you want!</h1>
+    <h1 class="text-center text-xl mt-2 font-bold" style="text-shadow: 1px 1px 1px red;">Search your phone!</h1>
 
     <div class="flex justify-center mt-5 gap-x-5">
-        <input type="text" name="" id="searchField" placeholder="Enter a phone name" class="border text-center focus:outline-none rounded-lg">
+        <input type="text" name="" id="searchField" placeholder="Enter a phone name"
+            class="border text-center focus:outline-none rounded-lg">
         <button id="btnSearch" onclick="phoneLoader()" class="btn btn-primary active:outline-none">Search</button>
     </div>
 
@@ -25,6 +26,20 @@
             <span class="loading loading-ring loading-lg"></span>
         </div>
     </div>
+
+    <!-- Show details modal -->
+    <!-- Open the modal using ID.showModal() method -->
+
+    <dialog id="showDetails_modal" class="modal modal-bottom sm:modal-middle">
+        <form method="dialog" class="modal-box">
+            <h3 id="barndName" class="font-bold text-lg text-center">Hello!</h3>
+            <p class="py-4">Press ESC key or click the button below to close</p>
+            <div class="modal-action justify-center">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn text-center">Close</button>
+            </div>
+        </form>
+    </dialog>
 
     <div id="phoneContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-4/5 mx-auto mt-5">
         <!-- dynamic phones here -->
