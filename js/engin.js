@@ -81,11 +81,11 @@ let handleShowAll = () => {
 
 //handleShowDetail function
 let handleShowDetail = async (id) =>{
-    console.log('clicked', id)
+    // console.log('clicked', id)
     let res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
     let data = await res.json();
     let particulerData = data.data;
-    console.log(particulerData)
+    // console.log(particulerData)
 
     showIndividualModal(particulerData)
 }
@@ -96,8 +96,18 @@ let showIndividualModal = (particulerData) =>{
 
     let showDetailsContainer = document.getElementById('showDetailsContainer');
     showDetailsContainer.innerHTML = `
-    <div class="flex justify-center">
+    <div class="flex flex-col items-center justify-center space-y-2 font-semibold">
     <img src="${particulerData.image}" alt="">
+    <p>Brand: ${particulerData.brand}</p>
+    <p>Name: ${particulerData.name}</p>
+    
+    <div class="text-sm border">
+    <p><span class="underline">Processor</span>: ${particulerData.mainFeatures.chipSet}</p>
+    <p><span class="underline">Display</span>: ${particulerData.mainFeatures.displaySize}</p>
+    <p><span class="underline">Storage</span>: ${particulerData.mainFeatures.memory}</p>
+    <p><span class="underline">Gps</span>: ${particulerData.others.GPS}</p>
+    </div>
+    
     </div>
     `
     //call the modal after loading the individual phone
